@@ -38,11 +38,13 @@ impl DmsGpsPoint {
 // conversion from decimal gps point to DMS. We don't currently need this. The GPS coordinates at the intersection 
 // are currently specified in DMS, and we need to convert to decimal to construct and ENU frame for the frame
 // optimization.
+/*
 impl From<DecimalGpsPoint> for DmsGpsPoint {
     fn from(ll_pt : DecimalGpsPoint) -> Self {
         todo!();
     }
 }
+*/
 
 // A point on the surface of the earth, specified using 64-bit floating point numbers.
 #[derive(Serialize, Deserialize, Debug, Copy, Clone)]

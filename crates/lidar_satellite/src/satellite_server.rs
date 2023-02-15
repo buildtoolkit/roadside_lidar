@@ -1,4 +1,4 @@
-use std::hash::Hash;
+//use std::hash::Hash;
 use std::io::Read;
 use std::process::Command;
 use std::net;
@@ -6,7 +6,7 @@ use std::fs::File;
 use std::collections::HashMap;
 
 use lidar_common::lidar::*;
-use lidar_common::geography::*;
+//use lidar_common::geography::*;
 
 use serde::{Serialize, Deserialize};
 
@@ -94,9 +94,8 @@ impl LidarSatelliteServer {
 
     pub fn stop_lidar(&mut self, lidar_id : u16) {
         if self.lidars.contains_key(&lidar_id) {
-            let mut child = self.child_processes.get_mut(&lidar_id).unwrap();
+            let child = self.child_processes.get_mut(&lidar_id).unwrap();
             child.kill().expect("Failed to kill.");
-            child.wait();
         }
     }
 
@@ -108,7 +107,7 @@ impl LidarSatelliteServer {
 
         println!("{:?}", lidar_topics);
 
-        let mut record_command = Command::new("rosbag")
+        let record_command = Command::new("rosbag")
                 .arg("record")
                 .args(lidar_topics)
                 .arg("__name:=rosbag_recording")
@@ -119,7 +118,7 @@ impl LidarSatelliteServer {
     }
 
     pub fn stop_record(&mut self) {
-        if let Some(child) = &mut self.bagfile_process {
+        if let Some(_child) = &mut self.bagfile_process {
             Command::new("rosnode")
                 .arg("kill")
                 .arg("/rosbag_recording")
