@@ -4,6 +4,7 @@ use std::process::Command;
 use std::net;
 use std::fs::File;
 use std::collections::HashMap;
+use std::{thread, time};
 
 use lidar_common::lidar::*;
 //use lidar_common::geography::*;
@@ -89,6 +90,26 @@ impl LidarSatelliteServer {
 
             self.child_processes.insert(lidar_id, launch_command);
 
+        }
+    }
+
+    pub fn start_all_lidars(&mut self) {
+        let sleep_duration = time::Duration::from_millis(1000);
+
+        for (id, lidar) in self.lidars.iter() {
+            let launch_command = Command::new("roslaunch")
+                .arg("velodyne_pointcloud")
+                .arg("VLP16_points.launch")
+                .arg(format!("device_ip:={:?}", lidar.address))
+                .arg(format!("port:={}", lidar.port))
+                .arg(format!("frame_id:={}", lidar.frame_id))
+                .arg(format!("__ns:={}", lidar.namespace))
+                .spawn()
+                .expect("Failed to launch");
+
+            self.child_processes.insert(*id, launch_command);
+
+            thread::sleep(sleep_duration);
         }
     }
 

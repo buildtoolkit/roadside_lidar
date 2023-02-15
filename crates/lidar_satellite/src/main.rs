@@ -19,6 +19,12 @@ fn run_lidar(lidar_id : u16, satellite : &State<Mutex<LidarSatelliteServer>>) {
     sat.start_lidar(lidar_id);
 }
 
+#[post("/run_all_lidars")]
+fn run_all_lidars(satellite : &State<Mutex<LidarSatelliteServer>>) {
+    let mut sat = satellite.lock().expect("Lock mutex");
+    sat.start_all_lidars()
+}
+
 #[post("/stop_lidar/<lidar_id>")]
 fn stop_lidar(lidar_id : u16, satellite: &State<Mutex<LidarSatelliteServer>>) {
     let mut sat = satellite.lock().expect("Lock mutex");
@@ -48,5 +54,5 @@ fn rocket() -> _ {
     println!("Running satellite server.");
     rocket::build()
         .manage(Mutex::new(server))
-        .mount("/", routes![num_lidars, run_lidar, stop_lidar, start_recording, stop_recording])
+        .mount("/", routes![num_lidars, run_lidar, run_all_lidars, stop_lidar, start_recording, stop_recording])
 }
