@@ -1,0 +1,7 @@
+[workspace]
+
+members = [
+    "crates/lidar_common",
+    "crates/lidar_controller",
+    "crates/lidar_satellite"
+]
