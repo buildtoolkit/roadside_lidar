@@ -4,17 +4,19 @@ controller_address: "192.168.1.42"
 sensors:
   - lidar_type: "VelodyneVLP32C"
     gps:
-      latitude: 39.0
-      longitude: -119.0
+      latitude: 39.536353
+      longitude: -119.816140
     address: "172.20.133.70"
     port: 2400
     frame_id: "virginia_9th_ne"
     namespace: "virginia_9th_ne"
+    running: true
   - lidar_type: "VelodyneVLP32C"
     gps:
-      latitude: 39.0
-      longitude: -119.0
+      latitude: 39.536098
+      longitude: -119.816367
     address: "172.20.133.71"
     port: 2410
     frame_id: "virginia_9th_sw"
     namespace: "virginia_9th_sw"
+    running: true

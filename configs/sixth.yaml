@@ -10,11 +10,13 @@ sensors:
     port: 2460
     frame_id: "virginia_6th_sw"
     namespace: "virginia_6th_sw"
+    running: true
   - lidar_type: "VelodyneVLP32C"
     gps:
-      latitude: 39.0
-      longitude: -119.0
+      latitude: 39.532613
+      longitude: -119.815088
     address: "172.20.133.151"
     port: 2470
     frame_id: "virginia_6th_ne"
     namespace: "virginia_6th_ne"
+    running: true
