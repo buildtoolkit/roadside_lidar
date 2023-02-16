@@ -134,6 +134,8 @@ impl LidarSatelliteServer {
 
         let record_command = Command::new("rosbag")
                 .arg("record")
+                .arg("-o")
+                .arg("./data/lidar_data")
                 .args(lidar_topics)
                 .arg("__name:=rosbag_recording")
                 .spawn()
