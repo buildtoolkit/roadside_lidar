@@ -1,0 +1,20 @@
+hostname: "virginia_4th_host"
+address: "172.20.133.182"
+controller_address: "192.168.1.42"
+sensors:
+  - lidar_type: "VelodyneVLP32C"
+    gps:
+      latitude: 39.0
+      longitude: -119.0
+    address: "172.20.133.190"
+    port: 2500
+    frame_id: "virginia_4th_sw"
+    namespace: "virginia_4th_sw"
+  - lidar_type: "VelodyneVLP32C"
+    gps:
+      latitude: 39.0
+      longitude: -119.0
+    address: "172.20.133.191"
+    port: 2510
+    frame_id: "virginia_4th_ne"
+    namespace: "virginia_4th_ne"

@@ -1,0 +1,20 @@
+hostname: "virginia_5th_host"
+address: "172.20.133.162"
+controller_address: "192.168.1.42"
+sensors:
+  - lidar_type: "VelodyneVLP32C"
+    gps:
+      latitude: 39.0
+      longitude: -119.0
+    address: "172.20.133.170"
+    port: 2480
+    frame_id: "virginia_5th_sw"
+    namespace: "virginia_5th_sw"
+  - lidar_type: "VelodyneVLP32C"
+    gps:
+      latitude: 39.0
+      longitude: -119.0
+    address: "172.20.133.171"
+    port: 2490
+    frame_id: "virginia_15th_se"
+    namespace: "virginia_15th_se"

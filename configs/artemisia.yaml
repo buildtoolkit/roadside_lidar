@@ -1,0 +1,20 @@
+hostname: "virginia_artemisia_host"
+address: "172.20.133.42"
+controller_address: "192.168.1.42"
+sensors:
+  - lidar_type: "VelodyneVLP32C"
+    gps:
+      latitude: 39.0
+      longitude: -119.0
+    address: "172.20.133.50"
+    port: 2380
+    frame_id: "virginia_artemisia_sw"
+    namespace: "virginia_artemisia_sw"
+  - lidar_type: "VelodyneVLP32C"
+    gps:
+      latitude: 39.0
+      longitude: -119.0
+    address: "172.20.133.51"
+    port: 2390
+    frame_id: "virginia_artemisia_ne"
+    namespace: "virginia_artemisia_ne"

@@ -1,0 +1,20 @@
+hostname: "virginia_college_host"
+address: "172.20.133.22"
+controller_address: "192.168.1.42"
+sensors:
+  - lidar_type: "VelodyneVLP32C"
+    gps:
+      latitude: 39.0
+      longitude: -119.0
+    address: "172.20.133.30"
+    port: 2340
+    frame_id: "virginia_college_0"
+    namespace: "virginia_college_0"
+  - lidar_type: "VelodyneVLP32C"
+    gps:
+      latitude: 39.0
+      longitude: -119.0
+    address: "172.20.133.31"
+    port: 2350
+    frame_id: "virginia_college_1"
+    namespace: "virginia_college_1"
